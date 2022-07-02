@@ -1,0 +1,6 @@
+conditional probability
+
+There are 3 types Naive Models:
+1.Gaussian :take i/p as continuous values 1.2,5.6 etc
+2.Multinomial : classification problem like which category : sports,politics
+3.Bernoulli : similar to multinomial but predictor variables are the independent Boolean variables.
