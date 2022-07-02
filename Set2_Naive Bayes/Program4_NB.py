@@ -1,6 +1,7 @@
 
 # ------ Naive Bayes - GaussianNB --- diabetic data process
 import pandas as pd
+from matplotlib import pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,ConfusionMatrixDisplay,confusion_matrix
 from sklearn.preprocessing import StandardScaler
@@ -8,8 +9,7 @@ from sklearn.naive_bayes import GaussianNB
 
 df=pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/diabetes.csv")
 print(df.head())
-labels=df.columns
-print(labels[:-1].values)
+
 #---take data as features & labels
 
 X=df.iloc[:,:-1].values
@@ -49,7 +49,9 @@ accuracy=accuracy_score(y_test, y_predict)
 print(accuracy)
 
 #----plot
+# Always confusion matrix labels are different categories in output.Here 0 or 1 ie:Diabetic or Non Diabetic
+md=ConfusionMatrixDisplay(mat,display_labels=['Diabetic','No Diabetic'])
 
-md=ConfusionMatrixDisplay(mat,display_labels=(labels[:-1].values))
-#md.plot()
-#plt.show()
+# -- plotting the data
+md.plot()
+plt.show()
