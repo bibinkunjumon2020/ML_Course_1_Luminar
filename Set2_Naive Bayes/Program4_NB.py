@@ -49,8 +49,8 @@ accuracy=accuracy_score(y_test, y_predict)
 print(accuracy)
 
 #----plot
-# Always confusion matrix labels are different categories in output.Here 0 or 1 ie:Diabetic or Non Diabetic
-md=ConfusionMatrixDisplay(mat,display_labels=['Diabetic','No Diabetic'])
+# Always confusion matrix labels are different categories in output.Here 0 or 1 ie:Diabetic or Non-Diabetic
+md=ConfusionMatrixDisplay(mat,display_labels=['No Diabetic','Diabetic']) # Keep in mind 0 comes first so Non-Diabetic
 
 # -- plotting the data
 md.plot()
