@@ -8,6 +8,8 @@ from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
 
 df=pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/diabetes.csv")
+# Check for null values - if there remove it or fill it
+print(df.isna().sum())
 print(df.head())
 
 #---take data as features & labels

@@ -11,6 +11,8 @@ from matplotlib import pyplot as plt
 
 df = pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/diabetes.csv")
 
+# Check for null values - if there remove it or fill it
+print(df.isna().sum())
 # data separating
 
 X = df.iloc[:,:-1]

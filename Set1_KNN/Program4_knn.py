@@ -12,6 +12,9 @@ from sklearn.neighbors import KNeighborsClassifier as KNC
 
 #----- Read file create dataframe
 df=pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/Iris.csv")
+
+# Check for null values - if there remove it or fill it
+print(df.isna().sum())
 print(df.head())
 
 #----- Cleaning DF by dropping unnecessary columns

@@ -9,6 +9,8 @@ from sklearn.metrics import classification_report,confusion_matrix,accuracy_scor
 
 #------Importing Fila as DataFrame
 df=pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/diabetes.csv")
+# Check for null values - if there remove it or fill it
+print(df.isna().sum())
 #print(df.head())
 print("**********")
 print("Shape=",df.shape)
