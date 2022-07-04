@@ -8,7 +8,7 @@ from sklearn.metrics import confusion_matrix, accuracy_score, ConfusionMatrixDis
 from sklearn.model_selection import train_test_split as tts
 from sklearn.preprocessing import StandardScaler as SS
 from sklearn.neighbors import KNeighborsClassifier as KNC
-
+from collections import Counter
 
 #----- Read file create dataframe
 df=pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/Iris.csv")
@@ -25,11 +25,15 @@ print(df.tail())
 #----- Seperating Input and Output Values
 
 X=df.iloc[:,:-1].values
-#print(X)
-Y=df.iloc[:,-1].values
-#print(Y)
 
-X_train,X_test,Y_train,Y_test=tts(X,Y,train_size=0.70) # Keep order in mind if variable first input then tts also input first
+y= df.iloc[:, -1].values
+
+
+# DATA SET OUTPUT CHECKING - balanced or imbalanced.IF binary output has similar o/p count,then Balanced,otherwise imbalanced
+# depends on counter output we can decide which algorithm is better
+print(Counter(y))
+
+X_train, X_test, y_train, y_test=tts(X, y, train_size=0.70,random_state=1) # Keep order in mind if variable first input then tts also input first
 
 # Scaling
 
@@ -40,10 +44,10 @@ X_test = scalar.transform(X_test)
 
 #classification :KNN ie:predicting
 
-knn=KNC(n_neighbors=7)  #model created
-knn.fit(X_train,Y_train)
-Y_predict=knn.predict(X_test)
-#print(Y_predict)
+knn = KNC(n_neighbors=7)  #model created
+knn.fit(X_train, y_train)
+y_pred = knn.predict(X_test)
+#print(y_pred)
 
 # Random check
 
@@ -53,16 +57,16 @@ print("Random Prediction 2: ",knn.predict([[5.9,3,5.1,1.8]])) #Here True Predict
 
 #----- C.Matrix and accuracy
 
-matrix=confusion_matrix(Y_test,Y_predict)
+matrix = confusion_matrix(y_test, y_pred)
 print(matrix)
-accuracy=accuracy_score(Y_test,Y_predict)
+accuracy = accuracy_score(y_test, y_pred)
 print(accuracy)
 
 # --------- Display Matrix using Matplot
 
 
-labels=['Versicolor','Setosa','Virginica'] #on X and Y axis op labels
-md=ConfusionMatrixDisplay(matrix,display_labels=labels)
+labels = ['Versicolor','Setosa','Virginica'] #on X and y axis op labels
+md = ConfusionMatrixDisplay(matrix,display_labels=labels)
 
 md.plot()
 plt.show() #It pops up the window to show graph

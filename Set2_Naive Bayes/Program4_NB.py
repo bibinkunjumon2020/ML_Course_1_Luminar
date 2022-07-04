@@ -6,7 +6,7 @@ from sklearn.model_selection import train_test_split
 from sklearn.metrics import accuracy_score,ConfusionMatrixDisplay,confusion_matrix
 from sklearn.preprocessing import StandardScaler
 from sklearn.naive_bayes import GaussianNB
-
+from collections import Counter
 df=pd.read_csv("/Users/bibinkunjumon/Downloads/Programs/diabetes.csv")
 # Check for null values - if there remove it or fill it
 print(df.isna().sum())
@@ -16,6 +16,10 @@ print(df.head())
 
 X=df.iloc[:,:-1].values
 y=df.iloc[:,-1].values
+
+# DATA SET OUTPUT CHECKING - balanced or imbalanced.IF binary output has similar o/p count,then Balanced,otherwise imbalanced
+# depends on counter output we can decide which algorithm is better
+print(Counter(y))
 
 #------ create training and test sets
 

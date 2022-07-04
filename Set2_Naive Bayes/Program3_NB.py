@@ -6,7 +6,7 @@ from sklearn.datasets import load_iris # I used this data instead of importing f
 from sklearn.model_selection import train_test_split
 from sklearn.naive_bayes import GaussianNB
 from sklearn.metrics import accuracy_score,confusion_matrix,classification_report,ConfusionMatrixDisplay
-
+from collections import Counter
 # ---- Data is imported from dataset library
 
 irisData=load_iris()
@@ -18,7 +18,9 @@ print('Outputs(label target) : ',irisData.target_names)
 X=irisData.data  #features set
 y=irisData.target #target set
 print(X,y)
-
+# DATA SET OUTPUT CHECKING - balanced or imbalanced.IF binary output has similar o/p count,then Balanced,otherwise imbalanced
+# depends on counter output we can decide which algorithm is better
+print(Counter(y))
 # splitting data
 X_train,X_test,y_train,y_test = train_test_split(X,y,test_size=.2,random_state=42)
 
