@@ -3,7 +3,7 @@ from sklearn.linear_model import LinearRegression
 
 # ------------------------------ Train Data -----------------
 # - reading train data set
-df = pd.read_csv("/Users/bibinkunjumon/PycharmProjects/ML_Course_1_Luminar/train-data.csv")
+df = pd.read_csv("/Source/train-data.csv")
 print(df.columns)
 
 # -- Data cleaning
@@ -61,7 +61,7 @@ model.fit(X_train,y)
 
 # ------------------------------ Test Data -----------------
 # - reading train data set
-df = pd.read_csv("/Users/bibinkunjumon/PycharmProjects/ML_Course_1_Luminar/test-data.csv")
+df = pd.read_csv("/Source/test-data.csv")
 print(df.columns)
 
 # -- Data cleaning

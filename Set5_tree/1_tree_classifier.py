@@ -1,4 +1,5 @@
 import pandas as pd
+from sklearn.metrics import classification_report,ConfusionMatrixDisplay,confusion_matrix
 from sklearn.model_selection import train_test_split
 from sklearn.tree import DecisionTreeClassifier,plot_tree
 import matplotlib.pyplot as plt
@@ -19,6 +20,13 @@ model.fit(X_train,y_train)
 # Prediction
 y_pred = model.predict(X_test)
 print(y_pred)
+#report
+print(classification_report(y_test,y_pred))
+#confusionmatrix
+mat = confusion_matrix(y_test,y_pred)
+print(mat)
+ConfusionMatrixDisplay(mat).plot()
+plt.show()
 # Graph draw
 plt.figure(figsize=(12,7))
 # tree plot fn
