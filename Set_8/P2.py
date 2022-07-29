@@ -1,6 +1,4 @@
 
-# from google.colab import drive
-# drive.mount('/content/drive')
 import pandas as pd
 from sklearn.svm import SVC
 import os
@@ -11,15 +9,6 @@ import numpy as np
 from sklearn.model_selection import train_test_split
 from sklearn.metrics import ConfusionMatrixDisplay
 
-print(len(os.listdir('/Users/bibinkunjumon/Downloads/Programs/data/cat')))
-
-print(len(os.listdir('/Users/bibinkunjumon/Downloads/Programs/data/dog')))
-
-catpath = os.path.join('/Users/bibinkunjumon/Downloads/Programs/data','cat')
-print(catpath)
-
-#for img in os.listdir(catpath):
- #   print(img)
 
 # ------- To create dataframe from image files -------
 
